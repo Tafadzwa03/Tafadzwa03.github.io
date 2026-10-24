@@ -4,275 +4,968 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tafadzwa Chipuriro — Electrical Engineer researching power electronics, power systems and renewable energy.">
+  <meta name="description" content="Tafadzwa Chipuriro — Electrical Engineer specializing in power electronics, power systems and renewable energy.">
+  <meta name="theme-color" content="#ffffff">
   <title>Tafadzwa Chipuriro | Electrical Engineer</title>
+
   <style>
     :root {
-      --bg: #0b1120;
-      --panel: #111c30;
-      --text: #edf3ff;
-      --muted: #a5b4cc;
-      --accent: #60a5fa;
-      --line: #26354d;
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --border: #e2e8f0;
+      --max-width: 1000px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { width: min(1080px, 90%); margin: auto; }
 
-    nav {
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* Header */
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      min-height: 72px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
+      gap: 24px;
     }
-    .logo { font-weight: 800; color: var(--text); }
-    nav .links { display: flex; gap: 22px; flex-wrap: wrap; }
-    nav .links a { color: var(--muted); font-size: 14px; }
 
-    .hero { padding: 100px 0 85px; }
-    .eyebrow {
+    .identity {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 37px;
+      height: 37px;
+      display: grid;
+      place-items: center;
+      background: var(--accent-soft);
+      border: 1px solid #dbeafe;
       color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .identity-name {
+      font-size: 13px;
+      font-weight: 650;
+      line-height: 1.5;
+    }
+
+    .identity-role {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .tab {
+      padding: 8px 10px;
+      background: transparent;
+      color: var(--muted);
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
       font-size: 12px;
-      font-weight: bold;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
     }
-    h1 {
-      font-size: clamp(38px, 7vw, 68px);
-      line-height: 1.12;
-      letter-spacing: -2px;
-      margin: 18px 0;
-    }
-    h1 span { color: var(--accent); }
-    .intro { color: var(--muted); max-width: 680px; font-size: 18px; }
-    .buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
-    .btn {
-      display: inline-block;
-      padding: 11px 19px;
-      border: 1px solid var(--line);
-      border-radius: 7px;
+
+    .tab:hover {
+      background: var(--surface-soft);
       color: var(--text);
     }
-    .btn.primary { background: var(--accent); color: #08111f; border-color: var(--accent); font-weight: bold; }
 
-    section { padding: 60px 0; border-top: 1px solid var(--line); }
-    h2 { font-size: 29px; margin: 0 0 10px; }
-    .sub { color: var(--muted); margin-top: 0; margin-bottom: 30px; }
+    .tab.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+    /* Main layout */
+
+    main {
+      min-height: calc(100vh - 135px);
     }
-    .card {
-      padding: 24px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 12px;
+
+    .panel {
+      padding: 46px 0 60px;
+      animation: fade-in 0.18s ease-out;
     }
-    .card h3 { margin-top: 0; font-size: 19px; }
-    .card p { color: var(--muted); font-size: 14px; }
-    .tag {
-      display: inline-block;
-      border: 1px solid #345078;
-      color: #bfdbfe;
-      border-radius: 5px;
-      padding: 3px 8px;
-      margin: 4px 3px 0 0;
-      font-size: 11px;
+
+    .panel[hidden] {
+      display: none;
     }
-    .about { max-width: 760px; color: var(--muted); }
-    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
-    .skills span {
-      padding: 9px 13px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      font-size: 13px;
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    footer {
-      padding: 30px 0;
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 690px;
+      margin: 14px 0;
+      font-size: clamp(29px, 4vw, 39px);
+      font-weight: 650;
+      letter-spacing: -1.1px;
+      line-height: 1.3;
+    }
+
+    h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      line-height: 1.4;
+      font-weight: 650;
+      letter-spacing: -0.4px;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    p {
+      margin: 0 0 13px;
+    }
+
+    .lead {
+      max-width: 690px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-heading {
+      margin-bottom: 24px;
+    }
+
+    .section-description {
+      margin: 4px 0 0;
       color: var(--muted);
       font-size: 13px;
     }
 
-    @media (max-width: 600px) {
-      nav { align-items: flex-start; gap: 15px; flex-direction: column; }
-      nav .links { gap: 14px; }
-      .hero { padding: 65px 0; }
-      section { padding: 45px 0; }
+    .muted {
+      color: var(--muted);
+    }
+
+    /* Buttons */
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 8px 13px;
+      background: #ffffff;
+      border: 1px solid #dbe3ee;
+      border-radius: 6px;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 550;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--surface-soft);
+      text-decoration: none;
+      border-color: #cbd5e1;
+    }
+
+    .button-primary {
+      color: #ffffff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .button-primary:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+
+    /* Cards and grids */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 19px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-label {
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 7px;
+      color: #1d4ed8;
+      background: var(--accent-soft);
+      border: 1px solid #dbeafe;
+      border-radius: 4px;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: start;
+      gap: 15px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    /* Education and experience lists */
+
+    .detail-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .detail-list li {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-list li:first-child {
+      padding-top: 0;
+    }
+
+    .detail-list li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .detail-list strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .detail-list span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Publication */
+
+    .publication {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .publication-year {
+      flex-shrink: 0;
+      padding: 5px 8px;
+      border: 1px solid #dbeafe;
+      border-radius: 5px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Contact */
+
+    .contact-link {
+      overflow-wrap: anywhere;
+      font-size: 12px;
+    }
+
+    /* Footer */
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      min-height: 58px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Responsive navigation */
+
+    @media (max-width: 760px) {
+      .header-inner {
+        padding-top: 13px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .navigation {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        scrollbar-width: thin;
+      }
+
+      .tab {
+        flex: 0 0 auto;
+      }
+
+      .panel {
+        padding: 32px 0 42px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: calc(100% - 30px);
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .publication {
+        gap: 10px;
+      }
+
+      .footer-inner {
+        padding: 13px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <nav>
-      <a class="logo" href="#">TC.</a>
-      <div class="links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
+
+  <!-- Header and tab navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="identity" href="#home" aria-label="Tafadzwa Chipuriro home"
+         style="color:inherit;text-decoration:none">
+        <div class="avatar">TC</div>
+        <div>
+          <div class="identity-name">Tafadzwa Chipuriro</div>
+          <div class="identity-role">Electrical Engineering · Power Electronics</div>
+        </div>
+      </a>
+
+      <nav class="navigation" aria-label="Main navigation" role="tablist">
+        <button class="tab active" id="tab-home" role="tab"
+          aria-selected="true" aria-controls="home" data-tab="home">Home</button>
+        <button class="tab" id="tab-about" role="tab"
+          aria-selected="false" aria-controls="about" data-tab="about" tabindex="-1">About</button>
+        <button class="tab" id="tab-research" role="tab"
+          aria-selected="false" aria-controls="research" data-tab="research" tabindex="-1">Research</button>
+        <button class="tab" id="tab-projects" role="tab"
+          aria-selected="false" aria-controls="projects" data-tab="projects" tabindex="-1">Projects</button>
+        <button class="tab" id="tab-publications" role="tab"
+          aria-selected="false" aria-controls="publications" data-tab="publications" tabindex="-1">Publications</button>
+        <button class="tab" id="tab-contact" role="tab"
+          aria-selected="false" aria-controls="contact" data-tab="contact" tabindex="-1">Contact</button>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HOME -->
+    <section class="panel" id="home" role="tabpanel"
+      aria-labelledby="tab-home">
+
+      <div class="eyebrow">Portfolio · 2026</div>
+
+      <h1>
+        Power electronics for a more reliable and sustainable energy future.
+      </h1>
+
+      <p class="lead">
+        I am an electrical engineer pursuing an M.Tech in Power Electronics
+        and Power Systems at IIT Palakkad, India. My interests include power
+        conversion, digital control, grid-connected energy systems and
+        renewable energy technologies.
+      </p>
+
+      <div class="actions">
+        <button class="button button-primary" data-go="projects">
+          Explore projects ↗
+        </button>
+        <button class="button" data-go="about">
+          About me
+        </button>
+        <a class="button" href="https://github.com/Tafadzwa03"
+          target="_blank" rel="noopener noreferrer">
+          GitHub ↗
+        </a>
       </div>
-    </nav>
 
-    <header class="hero">
-      <div class="eyebrow">Electrical Engineering · Power Electronics</div>
-      <h1>Engineering solutions for a <span>sustainable energy future.</span></h1>
-      <p class="intro">
-        I'm Tafadzwa Chipuriro, an electrical engineer pursuing an
-        M.Tech in Power Electronics and Power Systems at IIT Palakkad.
-        My interests include power converters, renewable energy,
-        grid-connected systems and embedded control.
-      </p>
-      <div class="buttons">
-        <a class="btn primary" href="#projects">Explore my work ↗</a>
-        <a class="btn" href="#contact">Get in touch</a>
+      <div style="height:34px"></div>
+
+      <div class="section-heading">
+        <h2>Current focus</h2>
+        <p class="section-description">
+          Engineering research and practical implementation.
+        </p>
       </div>
-    </header>
 
-    <section id="about">
-      <h2>About me</h2>
-      <p class="about">
-        My engineering journey is driven by an interest in reliable,
-        efficient and affordable electrical energy. Growing up in
-        Zimbabwe, where power interruptions are a familiar challenge,
-        inspired my interest in renewable energy and power conversion.
-        I enjoy combining circuit design, simulation, embedded systems
-        and experimental validation to solve practical engineering
-        problems.
-      </p>
-      <p class="about">
-        Currently, I am pursuing postgraduate studies in power
-        electronics and power systems at IIT Palakkad, India.
-      </p>
-    </section>
-
-    <section id="research">
-      <h2>Research interests</h2>
-      <p class="sub">Areas I am exploring and developing expertise in.</p>
       <div class="grid">
         <article class="card">
-          <h3>Power converters</h3>
-          <p>High-efficiency DC-DC converters, bidirectional conversion,
-          converter modelling and digital control.</p>
+          <div class="card-label">Power conversion</div>
+          <h3>Bidirectional power converters</h3>
+          <p>
+            Grid-to-battery and battery-to-grid conversion, converter
+            modelling, digital control and grid-connected energy storage.
+          </p>
+          <div class="tags">
+            <span class="tag">DC-DC</span>
+            <span class="tag">G2B / B2G</span>
+            <span class="tag">Control</span>
+          </div>
         </article>
+
         <article class="card">
-          <h3>Grid-connected systems</h3>
-          <p>Grid-to-battery and battery-to-grid converters, current
-          control, synchronization and power quality.</p>
-        </article>
-        <article class="card">
-          <h3>Renewable energy</h3>
-          <p>Solar energy conversion, MPPT, DC microgrids and
-          energy access for rural communities.</p>
+          <div class="card-label">Digital systems</div>
+          <h3>Control and real-time emulation</h3>
+          <p>
+            Embedded implementation and experimental validation of dynamic
+            systems using digital controllers and motor-generator platforms.
+          </p>
+          <div class="tags">
+            <span class="tag">Embedded systems</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">Modelling</span>
+          </div>
         </article>
       </div>
+
     </section>
 
-    <section id="projects">
-      <h2>Selected projects</h2>
-      <p class="sub">A selection of my engineering and research work.</p>
-      <div class="grid">
+    <!-- ABOUT -->
+    <section class="panel" id="about" role="tabpanel"
+      aria-labelledby="tab-about" hidden>
+
+      <div class="section-heading">
+        <div class="eyebrow">Background</div>
+        <h2>About me</h2>
+        <p class="section-description">
+          Education, engineering experience and technical interests.
+        </p>
+      </div>
+
+      <div class="split">
+
         <article class="card">
+          <h3>My journey</h3>
+          <p>
+            Growing up in Zimbabwe, I experienced the challenges associated
+            with unreliable electricity supply. This helped shape my interest
+            in power electronics, renewable energy and practical solutions
+            for improving access to reliable electricity.
+          </p>
+          <p>
+            I enjoy combining circuit design, simulation, embedded programming
+            and experimental validation to solve engineering problems.
+          </p>
+
+          <h3 style="margin-top:22px">My approach</h3>
+          <p>
+            I value rigorous modelling, practical testing, efficient
+            converter design and technologies that address real-world needs.
+          </p>
+        </article>
+
+        <div class="stack">
+
+          <article class="card">
+            <div class="card-label">Education</div>
+            <ul class="detail-list">
+              <li>
+                <strong>M.Tech — Power Electronics and Power Systems</strong>
+                <span>IIT Palakkad, India · 2025–2027</span>
+              </li>
+              <li>
+                <strong>BSc Honours — Electrical and Electronic Engineering</strong>
+                <span>University of Zimbabwe</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-label">Technical toolkit</div>
+            <div class="tags">
+              <span class="tag">PLECS</span>
+              <span class="tag">MATLAB / Simulink</span>
+              <span class="tag">LTspice</span>
+              <span class="tag">Embedded C</span>
+              <span class="tag">Verilog / FPGA</span>
+              <span class="tag">Power systems</span>
+              <span class="tag">PCB prototyping</span>
+              <span class="tag">Digital control</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="panel" id="research" role="tabpanel"
+      aria-labelledby="tab-research" hidden>
+
+      <div class="section-heading">
+        <div class="eyebrow">Technical interests</div>
+        <h2>Research</h2>
+        <p class="section-description">
+          Topics I work on and aim to explore further.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <h3>Power converter design</h3>
+          <p>
+            DC-DC and bidirectional converter topologies, semiconductor
+            selection, switching behaviour, efficiency and converter modelling.
+          </p>
+          <div class="tags">
+            <span class="tag">WBG devices</span>
+            <span class="tag">Converter modelling</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Grid-connected converter control</h3>
+          <p>
+            Current regulation, synchronization, modulation and control
+            validation for grid-interactive energy systems.
+          </p>
+          <div class="tags">
+            <span class="tag">PI control</span>
+            <span class="tag">PLL</span>
+            <span class="tag">SVPWM</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Renewable energy systems</h3>
+          <p>
+            Solar energy conversion, maximum power point tracking,
+            DC microgrids and energy access for rural communities.
+          </p>
+          <div class="tags">
+            <span class="tag">MPPT</span>
+            <span class="tag">Solar energy</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Real-time emulation</h3>
+          <p>
+            Digital implementation and experimental validation of dynamic
+            systems using embedded controllers and motor-generator platforms.
+          </p>
+          <div class="tags">
+            <span class="tag">FPGA</span>
+            <span class="tag">Motor control</span>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="panel" id="projects" role="tabpanel"
+      aria-labelledby="tab-projects" hidden>
+
+      <div class="section-heading">
+        <div class="eyebrow">Engineering portfolio</div>
+        <h2>Selected projects</h2>
+        <p class="section-description">
+          Converter design, simulation, embedded systems and prototyping.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-label">Power conversion</div>
           <h3>Bidirectional grid-battery converter</h3>
-          <p>Research into bidirectional energy conversion for
-          grid-connected energy storage, covering converter design,
-          control and simulation.</p>
-          <span class="tag">Power electronics</span>
-          <span class="tag">Digital control</span>
-          <span class="tag">Simulation</span>
+          <p>
+            Research into bidirectional energy conversion for grid-connected
+            energy storage, covering converter design, control and simulation.
+          </p>
+          <div class="tags">
+            <span class="tag">G2B / B2G</span>
+            <span class="tag">Digital control</span>
+            <span class="tag">Simulation</span>
+          </div>
         </article>
+
         <article class="card">
+          <div class="card-label">Research · FPGA</div>
           <h3>Dynamic wind turbine emulator</h3>
-          <p>A digitally implemented system for emulating dynamic
-          wind turbine characteristics using a small motor-generator
-          platform.</p>
-          <span class="tag">Motor control</span>
-          <span class="tag">FPGA</span>
-          <span class="tag">IEEE PEDES 2026</span>
+          <p>
+            A digitally implemented system for emulating dynamic wind turbine
+            characteristics using a small motor-generator platform.
+          </p>
+          <div class="tags">
+            <span class="tag">Motor-generator</span>
+            <span class="tag">Real-time emulation</span>
+          </div>
         </article>
+
         <article class="card">
+          <div class="card-label">Undergraduate project</div>
           <h3>Push-pull solar microinverter</h3>
-          <p>An undergraduate project involving a current-fed
-          push-pull converter and perturb-and-observe maximum
-          power point tracking.</p>
-          <span class="tag">DC-DC conversion</span>
-          <span class="tag">MPPT</span>
+          <p>
+            A current-fed push-pull converter incorporating perturb-and-observe
+            maximum power point tracking for solar energy conversion.
+          </p>
+          <div class="tags">
+            <span class="tag">DC-DC converter</span>
+            <span class="tag">MPPT</span>
+          </div>
         </article>
+
         <article class="card">
+          <div class="card-label">Assistive technology</div>
           <h3>Solar-powered pill dispenser</h3>
-          <p>An assistive technology prototype combining embedded
-          electronics, battery-powered operation and a solar-powered
-          study light.</p>
-          <span class="tag">Embedded systems</span>
-          <span class="tag">PCB design</span>
-          <span class="tag">Social impact</span>
+          <p>
+            An assistive technology prototype integrating embedded electronics,
+            battery monitoring and a solar-powered study light.
+          </p>
+          <div class="tags">
+            <span class="tag">Embedded C</span>
+            <span class="tag">PCB design</span>
+            <span class="tag">Social impact</span>
+          </div>
         </article>
-      </div>
-    </section>
 
-    <section id="publications">
-      <h2>Publications</h2>
-      <div class="card">
-        <p class="eyebrow">Conference paper · 2026</p>
-        <h3>Digital Implementation of Low-Cost Dynamic Wind Turbine Characteristics Emulation System</h3>
-        <p>
-          Co-author: Vrinda Prasad.
-          Accepted for IEEE PEDES 2026.
-        </p>
-        <p>
-          Add the official paper link here when it becomes available.
-        </p>
       </div>
-    </section>
 
-    <section id="skills">
-      <h2>Technical toolkit</h2>
-      <p class="sub">Tools and technologies I work with.</p>
-      <div class="skills">
-        <span>PLECS</span>
-        <span>MATLAB / Simulink</span>
-        <span>LTspice</span>
-        <span>Power converter design</span>
-        <span>Embedded C</span>
-        <span>Verilog / FPGA</span>
-        <span>Digital control</span>
-        <span>PCB prototyping</span>
-        <span>Power systems</span>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Let's connect</h2>
-      <p class="sub">
-        Interested in power electronics research, engineering
-        collaboration or opportunities? I'd be happy to connect.
+      <p class="muted" style="font-size:12px;margin-top:18px">
+        Detailed project pages with circuit diagrams, experimental results,
+        photographs and source-code links can be added as the portfolio grows.
       </p>
-      <div class="buttons">
-        <!-- Replace these links with your actual profiles. -->
-        <a class="btn primary" href="mailto:	
-chipurirotafadzwa26@gmail.com">Email me</a>
-        <a class="btn" href="https://www.linkedin.com/in/tafadzwa-chipuriro-147385203/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/Tafadzwa03" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      </div>
+
     </section>
 
-    <footer>
-      © 2026 Tafadzwa Chipuriro · Built with HTML and CSS · Hosted on GitHub Pages
-    </footer>
-  </div>
+    <!-- PUBLICATIONS -->
+    <section class="panel" id="publications" role="tabpanel"
+      aria-labelledby="tab-publications" hidden>
+
+      <div class="section-heading">
+        <div class="eyebrow">Research output</div>
+        <h2>Publications</h2>
+        <p class="section-description">
+          Conference contributions and research papers.
+        </p>
+      </div>
+
+      <article class="card publication">
+        <div class="publication-year">2026</div>
+        <div>
+          <h3>
+            Digital Implementation of Low-Cost Dynamic Wind Turbine
+            Characteristics Emulation System
+          </h3>
+          <p>
+            Co-author: Vrinda Prasad. Accepted for IEEE PEDES 2026.
+          </p>
+          <p class="muted">
+            The official proceedings link or DOI can be added when available.
+          </p>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="panel" id="contact" role="tabpanel"
+      aria-labelledby="tab-contact" hidden>
+
+      <div class="section-heading">
+        <div class="eyebrow">Get in touch</div>
+        <h2>Contact</h2>
+        <p class="section-description">
+          For research collaboration, academic opportunities and engineering discussions.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-label">Email</div>
+          <h3>Let's talk engineering</h3>
+          <p>
+            Reach me by email for professional or research-related enquiries.
+          </p>
+          <a class="contact-link"
+            href="mailto:chipurirotafadzwa26@gmail.com">
+            chipurirotafadzwa26@gmail.com ↗
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="card-label">Professional profiles</div>
+          <ul class="detail-list">
+            <li>
+              <strong>
+                <a href="https://www.linkedin.com/in/tafadzwa-chipuriro-147385203/"
+                   target="_blank" rel="noopener noreferrer">
+                  LinkedIn ↗
+                </a>
+              </strong>
+              <span>Professional experience and networking</span>
+            </li>
+            <li>
+              <strong>
+                <a href="https://github.com/Tafadzwa03"
+                   target="_blank" rel="noopener noreferrer">
+                  GitHub ↗
+                </a>
+              </strong>
+              <span>Code, simulations and engineering projects</span>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Tafadzwa Chipuriro</span>
+      <span>Power Electronics · Power Systems</span>
+    </div>
+  </footer>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll("[data-tab]"));
+    const panels = Array.from(document.querySelectorAll(".panel"));
+
+    function showTab(name, updateAddress = true) {
+      const selectedPanel = panels.find(panel => panel.id === name);
+
+      if (!selectedPanel) return;
+
+      panels.forEach(panel => {
+        const isSelected = panel === selectedPanel;
+        panel.hidden = !isSelected;
+      });
+
+      tabs.forEach(tab => {
+        const isSelected = tab.dataset.tab === name;
+
+        tab.classList.toggle("active", isSelected);
+        tab.setAttribute("aria-selected", String(isSelected));
+        tab.tabIndex = isSelected ? 0 : -1;
+      });
+
+      if (updateAddress) {
+        history.replaceState(null, "", "#" + name);
+      }
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        showTab(tab.dataset.tab);
+      });
+
+      tab.addEventListener("keydown", event => {
+        let nextIndex = index;
+
+        if (event.key === "ArrowRight") {
+          nextIndex = (index + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft") {
+          nextIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = tabs.length - 1;
+        } else {
+          return;
+        }
+
+        event.preventDefault();
+        tabs[nextIndex].focus();
+        showTab(tabs[nextIndex].dataset.tab);
+      });
+    });
+
+    document.querySelectorAll("[data-go]").forEach(button => {
+      button.addEventListener("click", () => {
+        showTab(button.dataset.go);
+      });
+    });
+
+    window.addEventListener("hashchange", () => {
+      const name = location.hash.slice(1);
+      if (panels.some(panel => panel.id === name)) {
+        showTab(name, false);
+      }
+    });
+
+    const initialTab = location.hash.slice(1);
+
+    if (panels.some(panel => panel.id === initialTab)) {
+      showTab(initialTab, false);
+    } else {
+      showTab("home", false);
+    }
+  </script>
+
 </body>
 </html>
