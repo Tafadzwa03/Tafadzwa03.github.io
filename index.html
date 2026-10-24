@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tafadzwa Chipuriro — Electrical Engineer researching power electronics, power systems and renewable energy.">
+  <title>Tafadzwa Chipuriro | Electrical Engineer</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --panel: #111c30;
+      --text: #edf3ff;
+      --muted: #a5b4cc;
+      --accent: #60a5fa;
+      --line: #26354d;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1080px, 90%); margin: auto; }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .logo { font-weight: 800; color: var(--text); }
+    nav .links { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav .links a { color: var(--muted); font-size: 14px; }
+
+    .hero { padding: 100px 0 85px; }
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin: 18px 0;
+    }
+    h1 span { color: var(--accent); }
+    .intro { color: var(--muted); max-width: 680px; font-size: 18px; }
+    .buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    .btn {
+      display: inline-block;
+      padding: 11px 19px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      color: var(--text);
+    }
+    .btn.primary { background: var(--accent); color: #08111f; border-color: var(--accent); font-weight: bold; }
+
+    section { padding: 60px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: 29px; margin: 0 0 10px; }
+    .sub { color: var(--muted); margin-top: 0; margin-bottom: 30px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .card h3 { margin-top: 0; font-size: 19px; }
+    .card p { color: var(--muted); font-size: 14px; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #345078;
+      color: #bfdbfe;
+      border-radius: 5px;
+      padding: 3px 8px;
+      margin: 4px 3px 0 0;
+      font-size: 11px;
+    }
+    .about { max-width: 760px; color: var(--muted); }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skills span {
+      padding: 9px 13px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    footer {
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      nav { align-items: flex-start; gap: 15px; flex-direction: column; }
+      nav .links { gap: 14px; }
+      .hero { padding: 65px 0; }
+      section { padding: 45px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#">TC.</a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">Electrical Engineering · Power Electronics</div>
+      <h1>Engineering solutions for a <span>sustainable energy future.</span></h1>
+      <p class="intro">
+        I'm Tafadzwa Chipuriro, an electrical engineer pursuing an
+        M.Tech in Power Electronics and Power Systems at IIT Palakkad.
+        My interests include power converters, renewable energy,
+        grid-connected systems and embedded control.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">Explore my work ↗</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About me</h2>
+      <p class="about">
+        My engineering journey is driven by an interest in reliable,
+        efficient and affordable electrical energy. Growing up in
+        Zimbabwe, where power interruptions are a familiar challenge,
+        inspired my interest in renewable energy and power conversion.
+        I enjoy combining circuit design, simulation, embedded systems
+        and experimental validation to solve practical engineering
+        problems.
+      </p>
+      <p class="about">
+        Currently, I am pursuing postgraduate studies in power
+        electronics and power systems at IIT Palakkad, India.
+      </p>
+    </section>
+
+    <section id="research">
+      <h2>Research interests</h2>
+      <p class="sub">Areas I am exploring and developing expertise in.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Power converters</h3>
+          <p>High-efficiency DC-DC converters, bidirectional conversion,
+          converter modelling and digital control.</p>
+        </article>
+        <article class="card">
+          <h3>Grid-connected systems</h3>
+          <p>Grid-to-battery and battery-to-grid converters, current
+          control, synchronization and power quality.</p>
+        </article>
+        <article class="card">
+          <h3>Renewable energy</h3>
+          <p>Solar energy conversion, MPPT, DC microgrids and
+          energy access for rural communities.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Selected projects</h2>
+      <p class="sub">A selection of my engineering and research work.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Bidirectional grid-battery converter</h3>
+          <p>Research into bidirectional energy conversion for
+          grid-connected energy storage, covering converter design,
+          control and simulation.</p>
+          <span class="tag">Power electronics</span>
+          <span class="tag">Digital control</span>
+          <span class="tag">Simulation</span>
+        </article>
+        <article class="card">
+          <h3>Dynamic wind turbine emulator</h3>
+          <p>A digitally implemented system for emulating dynamic
+          wind turbine characteristics using a small motor-generator
+          platform.</p>
+          <span class="tag">Motor control</span>
+          <span class="tag">FPGA</span>
+          <span class="tag">IEEE PEDES 2026</span>
+        </article>
+        <article class="card">
+          <h3>Push-pull solar microinverter</h3>
+          <p>An undergraduate project involving a current-fed
+          push-pull converter and perturb-and-observe maximum
+          power point tracking.</p>
+          <span class="tag">DC-DC conversion</span>
+          <span class="tag">MPPT</span>
+        </article>
+        <article class="card">
+          <h3>Solar-powered pill dispenser</h3>
+          <p>An assistive technology prototype combining embedded
+          electronics, battery-powered operation and a solar-powered
+          study light.</p>
+          <span class="tag">Embedded systems</span>
+          <span class="tag">PCB design</span>
+          <span class="tag">Social impact</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="card">
+        <p class="eyebrow">Conference paper · 2026</p>
+        <h3>Digital Implementation of Low-Cost Dynamic Wind Turbine Characteristics Emulation System</h3>
+        <p>
+          Co-author: Vrinda Prasad.
+          Accepted for IEEE PEDES 2026.
+        </p>
+        <p>
+          Add the official paper link here when it becomes available.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical toolkit</h2>
+      <p class="sub">Tools and technologies I work with.</p>
+      <div class="skills">
+        <span>PLECS</span>
+        <span>MATLAB / Simulink</span>
+        <span>LTspice</span>
+        <span>Power converter design</span>
+        <span>Embedded C</span>
+        <span>Verilog / FPGA</span>
+        <span>Digital control</span>
+        <span>PCB prototyping</span>
+        <span>Power systems</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Let's connect</h2>
+      <p class="sub">
+        Interested in power electronics research, engineering
+        collaboration or opportunities? I'd be happy to connect.
+      </p>
+      <div class="buttons">
+        <!-- Replace these links with your actual profiles. -->
+        <a class="btn primary" href="mailto:YOUR_EMAIL@example.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/Tafadzwa03" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Tafadzwa Chipuriro · Built with HTML and CSS · Hosted on GitHub Pages
+    </footer>
+  </div>
+</body>
+</html>
